@@ -1,8 +1,3 @@
-variable "service-name" {
-  type    = string
-  default = "nginx"
-}
-
 resource "aws_ecs_cluster" "dev" {
   name = "dev"
 }
@@ -18,7 +13,7 @@ resource "aws_ecs_task_definition" "task-definition" {
   container_definitions = jsonencode([
     {
       name      = var.service-name
-      image     = "nginx"
+      image     = var.service-image
       essential = true
       portMappings = [{
         protocol      = "tcp"
