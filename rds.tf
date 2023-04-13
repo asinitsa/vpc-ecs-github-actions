@@ -12,7 +12,7 @@ resource "random_password" "master" {
   length  = 16
   special = false
   upper   = false
-  number  = true
+  numeric = true
   lower   = true
 }
 
@@ -32,7 +32,7 @@ resource "aws_db_instance" "dev" {
   skip_final_snapshot         = true
   allow_major_version_upgrade = false
   auto_minor_version_upgrade  = true
-  backup_retention_period     = 40
+  backup_retention_period     = 30
 
   tags = {
     Name        = "dev"
