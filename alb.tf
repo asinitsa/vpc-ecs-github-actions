@@ -14,21 +14,21 @@ resource "aws_lb" "dev" {
   }
 }
 
-resource "aws_lb_listener" "rebike80" {
-  load_balancer_arn = aws_lb.dev.arn
-  port              = "80"
-  protocol          = "HTTP"
-
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.nginx.arn
-  }
-
-  tags = {
-    Name        = "http",
-    Environment = "dev"
-  }
-}
+#resource "aws_lb_listener" "rebike80" {
+#  load_balancer_arn = aws_lb.dev.arn
+#  port              = "80"
+#  protocol          = "HTTP"
+#
+#  default_action {
+#    type             = "forward"
+#    target_group_arn = aws_lb_target_group.nginx.arn
+#  }
+#
+#  tags = {
+#    Name        = "http",
+#    Environment = "dev"
+#  }
+#}
 
 ################# Target groups #########
 resource "aws_lb_target_group" "nginx" {
